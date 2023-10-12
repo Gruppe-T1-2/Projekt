@@ -1,13 +1,15 @@
 /* Space class for modeling spaces (rooms, caves, ...)
  */
 
-import java.util.Set;
+import java.util.*;
 
 class Space extends Node {
   Space (String name) {
     super(name);
   }
-  
+
+  HashMap<String, Item> ItemsInSpace = new HashMap<String, Item>();
+
   public void welcome () {
     System.out.println("You are now at "+name);
     Set<String> exits = edges.keySet();

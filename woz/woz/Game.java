@@ -9,6 +9,8 @@ class Game {
   static Command  fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
   static Scanner  scanner  = new Scanner(System.in);
+
+  static InventoryManager inventory = new InventoryManager();
   
   private static void initRegistry () {
     Command cmdExit = new CommandExit();
@@ -21,7 +23,6 @@ class Game {
   
   public static void main (String args[]) {
     System.out.println("Welcome to the World of Zuul!");
-    
     initRegistry();
     context.getCurrent().welcome();
     
