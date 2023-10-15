@@ -1,9 +1,9 @@
 import java.util.*;
 public class InventoryManager {
-    static HashMap<String, Item> inventory = new HashMap<String, Item>();
+    static private HashMap<String, Item> inventory = new HashMap<String, Item>();
 
-    static double CO2Total;
-    static double Money;
+    static private double CO2Total;
+    static private double Money;
 
     static public double CO2TotalGet(){
         return CO2Total;
@@ -21,19 +21,23 @@ public class InventoryManager {
         Money = input;
     }
 
-    static public void addItem(String inputName, Item inputItem) {
-        inventory.put(inputName, inputItem);
+    static public void addItem(Item inputItem) {
+        inventory.put(inputItem.name, inputItem);
+        Money -= inputItem.price;
+        CO2Total += inputItem.CO2;
     }
 
-    static public void removeItem(String inputName, Item inputItem) {
+    static public void removeItem(String inputName) {
         inventory.remove(inputName);
+        Money += inventory.get(inputName).price;
+        CO2Total -= inventory.get(inputName).CO2;
     }
 
     static public Item getItem(String name) {
         if (inventory.get(name) != null) {
             return inventory.get(name);
         } else {
-            System.out.println("Kunne ikke finde en ting med dette navn. Returnerer en default genstand. Check din kode for at finde fejlen");
+            System.out.println("Kunne ikke finde en ting med dette navn. Returnerer en default Item.");
             inventory.put("Default", new Item("Default Name", "Default Description", 0, 0));
             return inventory.get("Default");
 
@@ -49,7 +53,7 @@ public class InventoryManager {
             System.out.println(item.description);
             System.out.println(" ");
         } else {
-            System.out.println("Kunne ikke finde en ting med dette navn. Check din kode for at finde fejlen");
+            System.out.println("Kunne ikke finde en ting med dette navn.");
         }
 
     }

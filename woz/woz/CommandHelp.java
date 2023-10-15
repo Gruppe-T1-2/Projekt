@@ -8,7 +8,7 @@ class CommandHelp extends BaseCommand implements Command {
   
   CommandHelp (Registry registry) {
     this.registry = registry;
-    this.description = "Display a help message";
+    this.description = "Vis en hjælpebesked";
   }
   
   @Override
@@ -24,7 +24,7 @@ class CommandHelp extends BaseCommand implements Command {
     }
     
     // present list of commands
-    System.out.println("Commands:");
+    System.out.println("Kommandoer:");
     for (String commandName: commandNames) {
       String description = registry.getCommand(commandName).getDescription();
       System.out.printf(" - %-"+max+"s %s%n", commandName, description);

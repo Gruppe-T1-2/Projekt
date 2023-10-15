@@ -14,15 +14,16 @@ class Game {
   
   private static void initRegistry () {
     Command cmdExit = new CommandExit();
-    registry.register("exit", cmdExit);
-    registry.register("quit", cmdExit);
-    registry.register("bye", cmdExit);
-    registry.register("go", new CommandGo());
-    registry.register("help", new CommandHelp(registry));
+    registry.register("afslut", cmdExit);
+    registry.register("forlad", cmdExit);
+    registry.register("farvel", cmdExit);
+    registry.register("gå", new CommandGo());
+    registry.register("undersøg", new CommandExamine());
+    registry.register("hjælp", new CommandHelp(registry));
   }
   
   public static void main (String args[]) {
-    System.out.println("Welcome to the World of Zuul!");
+    System.out.println("Velkommen til (Spil navn)!");
     initRegistry();
     context.getCurrent().welcome();
     
@@ -31,6 +32,6 @@ class Game {
       String line = scanner.nextLine();
       registry.dispatch(line);
     }
-    System.out.println("Game Over 😥");
+    System.out.println("Spillet er færdigt!");
   }
 }
