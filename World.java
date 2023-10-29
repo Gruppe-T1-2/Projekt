@@ -2,27 +2,35 @@
  */
 
 class World {
-  Space entry;
-  
-  World () {
-    Space entry    = new Space("Entry");
-    Space corridor = new Space("Corridor");
-    Space cave     = new Space("Cave");
-    Space pit      = new Space("Darkest Pit");
-    Space outside  = new Space("Outside");
-    
-    entry.addEdge("door", corridor);
-    corridor.addEdge("door", cave);
-    cave.addEdge("north", pit);
-    cave.addEdge("south", outside);
-    pit.addEdge("door", cave);
-    outside.addEdge("door", cave);
-    
-    this.entry = entry;
-  }
-  
-  Space getEntry () {
-    return entry;
-  }
-}
 
+    Space entry;
+    Space frugtOgGroent;
+    Space koed;
+    Space maelk;
+    Space mejeriprodukter;
+    Space udgang;
+
+    World () {
+        Space entry = new Space("Indgang");
+        Space frugtOgGroent = new Space("Frugt og grønt");
+        Space koed = new Space ("Kød");
+        Space mejeriprodukter = new Space ("Mejeriprodukter");
+        Space udgang = new Space ("Udgang");
+
+
+        entry.addEdge("Frugt og grønt", frugtOgGroent);
+
+        frugtOgGroent.addEdge("Kød", koed);
+        koed.addEdge("Mejeriprodukter", mejeriprodukter);
+        mejeriprodukter.addEdge("Udgang", udgang);
+
+        this.entry = entry;
+
+
+    }
+
+    Space getEntry () {
+        return entry;
+    }
+
+}
