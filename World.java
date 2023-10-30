@@ -19,10 +19,20 @@ class World {
 
 
         entry.addEdge("Frugt og grønt", frugtOgGroent);
+        entry.addEdge( "Kød", koed);
+        entry.addEdge("Mejeriprodukter", mejeriprodukter);
 
         frugtOgGroent.addEdge("Kød", koed);
+        frugtOgGroent.addEdge("Mejeriprodukter", mejeriprodukter);
+        frugtOgGroent.addEdge("Udgang", udgang);
+
         koed.addEdge("Mejeriprodukter", mejeriprodukter);
+        koed.addEdge("Frugt og grønt", frugtOgGroent);
+        koed.addEdge("Udgang", udgang);
+
         mejeriprodukter.addEdge("Udgang", udgang);
+        mejeriprodukter.addEdge("Kød", koed);
+        mejeriprodukter.addEdge("Frugt og grønt", frugtOgGroent);
 
         this.entry = entry;
 
