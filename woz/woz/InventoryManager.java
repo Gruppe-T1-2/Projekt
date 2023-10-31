@@ -22,15 +22,23 @@ public class InventoryManager {
     }
 
     static public void addItem(Item inputItem) {
-        inventory.put(inputItem.name, inputItem);
-        Money -= inputItem.price;
-        CO2Total += inputItem.CO2;
+        if (inputItem.price < Money) {
+            inventory.put(inputItem.name, inputItem);
+            Money -= inputItem.price;
+            CO2Total += inputItem.CO2;
+        } else {
+            System.out.println("Du har ikke nok penge til at købe denne genstand. Genstanden koster " + inputItem.price + " DKK " + "og du har " + Money + " DKK");
+        }
     }
 
     static public void removeItem(String inputName) {
-        inventory.remove(inputName);
-        Money += inventory.get(inputName).price;
-        CO2Total -= inventory.get(inputName).CO2;
+        if (inventory.containsKey(inputName)) {
+            Money += inventory.get(inputName).price;
+            CO2Total -= inventory.get(inputName).CO2;
+            inventory.remove(inputName);
+        } else {
+            System.out.println("Du har ikke en" + inputName);
+        }
     }
 
     static public Item getItem(String name) {
@@ -38,7 +46,7 @@ public class InventoryManager {
             return inventory.get(name);
         } else {
             System.out.println("Kunne ikke finde en ting med dette navn. Returnerer en default Item.");
-            inventory.put("Default", new Item("Default Name", "Default Description", 0, 0));
+            inventory.put("Default", new Item("Default Name", "Default Description", "Default tag", 0, 0));
             return inventory.get("Default");
 
         }
