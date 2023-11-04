@@ -2,15 +2,17 @@ import java.util.*;
 public class InventoryManager {
     static private HashMap<String, Item> inventory = new HashMap<String, Item>();
 
-    static private double CO2Total;
-    static private double Money;
+    static ShoppingList shoppingList = new ShoppingList();
 
-    static public double CO2TotalGet(){
-        return CO2Total;
+    static private double Score;
+    static private double Money = 150;
+
+    static public double ScoreGet(){
+        return Score;
     }
 
-    static public void CO2TotalSet(double input){
-        CO2Total = input;
+    static public void ScoreSet(double input){
+        Score = input;
     }
 
     static public double MoneyGet(){
@@ -24,8 +26,9 @@ public class InventoryManager {
     static public void addItem(Item inputItem) {
         if (inputItem.price < Money) {
             inventory.put(inputItem.name, inputItem);
+            shoppingList.itemAdded(inputItem);
             Money -= inputItem.price;
-            CO2Total += inputItem.CO2;
+            Score += inputItem.CO2;
         } else {
             System.out.println("Du har ikke nok penge til at købe denne genstand. Genstanden koster " + inputItem.price + " DKK " + "og du har " + Money + " DKK");
         }
@@ -33,8 +36,9 @@ public class InventoryManager {
 
     static public void removeItem(String inputName) {
         if (inventory.containsKey(inputName)) {
+            shoppingList.itemRemoved(inventory.get(inputName));
             Money += inventory.get(inputName).price;
-            CO2Total -= inventory.get(inputName).CO2;
+            Score -= inventory.get(inputName).CO2;
             inventory.remove(inputName);
         } else {
             System.out.println("Du har ikke en" + inputName);

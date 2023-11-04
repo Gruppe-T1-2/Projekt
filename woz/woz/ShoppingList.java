@@ -3,40 +3,43 @@ import java.util.Map;
 import java.util.Random;
 
 public class ShoppingList {
-    private Map<String, String> ItemsMissing = new HashMap<>();
+    HashMap<String, Integer> ItemsMissing = new HashMap<>();
 
-    String[] items = {"æble", "banan", "citron", "daddel", "estragon", "fersken", "grapefrugt"}; //Items fra indkøbsliste
 
     public void InitShoppingListRandom(int numberOfItems) {
         Random random = new Random();
         for (int i = 1; i <= numberOfItems; i++) {
-            int randomIndex = random.nextInt(items.length); // Generer random items
-            String itemName = items[randomIndex];           // fra items til indkøbslisten
-            String itemStatus = random.nextBoolean() ? "Mangler" : "Ikke på indkøbsliste";
-            AddItem(itemName, itemStatus);
+            int randomIndex = random.nextInt(Game.tagList.size());
+            String tagName = Game.tagList.get(randomIndex);
+            Integer tagStatus = (int)(Math.random()*10-7);
+            AddTag(tagName, tagStatus);
         }
     }
 
-    public void AddItem(String itemName, String status) {
-        ItemsMissing.put(itemName, status);
+    public void AddTag(String name, Integer i) {
+        ItemsMissing.put(name, i);
     }
 
-    public void RemoveItem(String itemName) {
-        ItemsMissing.remove(itemName);
+
+    public void itemAdded(Item item) {
+        if (ItemsMissing.containsKey(item.tag)) {
+            ItemsMissing.put(item.tag, ItemsMissing.get(item.tag) - 1);
+        }
     }
+
+    public void itemRemoved(Item item) {
+        if (ItemsMissing.containsKey(item.tag)) {
+            ItemsMissing.put(item.tag, ItemsMissing.get(item.tag) + 1);
+        }
+    }
+
 
     public void PrintMissingItems() {
-        for (Map.Entry<String, String> entry : ItemsMissing.entrySet()) {
-            if ("Mangler".equals(entry.getValue())) {
+        for (Map.Entry<String, Integer> entry : ItemsMissing.entrySet()) {
+            if (entry.getValue() == 0) {
                 System.out.println(entry.getKey());
+                System.out.print(entry.getValue());
             }
         }
-    }
-
-    public static void main(String[] args) {
-        ShoppingList shoppingList = new ShoppingList();
-        shoppingList.InitShoppingListRandom(10);
-        System.out.println("Indkøbsliste:");
-        shoppingList.PrintMissingItems();
     }
 }

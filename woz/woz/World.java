@@ -8,14 +8,15 @@ class World {
     Space koed;
     Space maelk;
     Space mejeriprodukter;
-    Space udgang;
+    Space sliksektion;
+    Ending udgang;
 
     World () {
-        Space entry = new Space("Indgang");
-        Space frugtOgGroent = new Space("Frugt og grønt");
-        Space koed = new Space ("Kød");
-        Space mejeriprodukter = new Space ("Mejeriprodukter");
-        Space udgang = new Space ("Udgang");
+        entry = new Space("Indgang");
+        frugtOgGroent = new Space("Frugt og grønt");
+        koed = new Space ("Kød");
+        mejeriprodukter = new Space ("Mejeriprodukter");
+        udgang = new Ending ("Udgang");
 
 
         entry.addEdge("Frugt og grønt", frugtOgGroent);
@@ -28,10 +29,12 @@ class World {
 
         koed.addEdge("Mejeriprodukter", mejeriprodukter);
         koed.addEdge("Frugt og grønt", frugtOgGroent);
+        koed.addEdge("Sliksektion", sliksektion);
         koed.addEdge("Udgang", udgang);
 
         mejeriprodukter.addEdge("Udgang", udgang);
         mejeriprodukter.addEdge("Kød", koed);
+        mejeriprodukter.addEdge("Sliksektion", sliksektion);
         mejeriprodukter.addEdge("Frugt og grønt", frugtOgGroent);
 
         this.entry = entry;

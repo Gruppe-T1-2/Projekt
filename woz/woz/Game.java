@@ -10,7 +10,10 @@ class Game {
   static Command  fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
   static Scanner  scanner  = new Scanner(System.in);
+
+  static ShoppingList shoppingList = new ShoppingList();
   static ArrayList<Item> itemList = new ArrayList<>();
+  static ArrayList<String> tagList = new ArrayList<>();
   
   private static void initRegistry () {
     Command cmdExit = new CommandExit();
@@ -19,10 +22,17 @@ class Game {
     registry.register("farvel", cmdExit);
     registry.register("gå", new CommandGo());
     registry.register("undersøg", new CommandExamine());
+    registry.register("shoppingliste", new CommandShoppingList());
     registry.register("hjælp", new CommandHelp(registry));
   }
 
   static void initItem() {
+    tagList.add("Frugt");
+    tagList.add("Mælk");
+    tagList.add("Kød");
+    tagList.add("Ost");
+    tagList.add("Slik");
+
     itemList.add(new Item( "Æbler, Sweetango, 8stk",
             "Dyrket i Italien", "Frugt",
             0.5 , 18));
@@ -74,14 +84,29 @@ class Game {
 
     //Slik og chokolade
     itemList.add(new Item ("150g lys chokolade, Milka",
-            "Lys chokolade fra Schweiz", "Chokolade",
+            "Lys chokolade fra Schweiz", "Slik",
             2.7, 12));
     itemList.add(new Item ("150g mørk chokolade, Marabou",
-            "Mørk chokolade fra Sverige", "Chokolade",
+            "Mørk chokolade fra Sverige", "Slik",
             0.9, 14));
     itemList.add(new Item ("100g slik, Haribo",
             "Matador mix", "Slik",
             2.3, 10));
+
+    for (int i = 0; i < itemList.size(); i++) {
+      if (itemList.get(i).tag == "Frugt") {
+        world.frugtOgGroent.ItemsInSpace.put(itemList.get(i).name, itemList.get(i));
+      }
+      if (itemList.get(i).tag == "Kød") {
+        world.koed.ItemsInSpace.put(itemList.get(i).name, itemList.get(i));
+      }
+      if (itemList.get(i).tag == "Mælk" || itemList.get(i).tag == "Ost") {
+        world.mejeriprodukter.ItemsInSpace.put(itemList.get(i).name, itemList.get(i));
+      }
+      if (itemList.get(i).tag == "Slik") {
+        world.sliksektion.ItemsInSpace.put(itemList.get(i).name, itemList.get(i));
+      }
+    }
 
 
 
