@@ -12,7 +12,15 @@ class Space extends Node {
 
   public void welcome () {
     System.out.println("Du er nu ved "+name);
+    System.out.println();
+    System.out.println("Der er de følgende varer i dette rum:");
+    for (Map.Entry<String, Item> entry : ItemsInSpace.entrySet()) {
+      System.out.println();
+      System.out.println("- " + entry.getKey());
+      System.out.println("- Pris: " + entry.getValue().price + " DKK");
+    }
     Set<String> exits = edges.keySet();
+    System.out.println();
     System.out.println("De nuværende udgange er:");
     for (String exit: exits) {
       System.out.println(" - "+exit);

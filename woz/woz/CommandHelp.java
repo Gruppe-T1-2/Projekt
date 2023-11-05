@@ -8,7 +8,7 @@ class CommandHelp extends BaseCommand implements Command {
   
   CommandHelp (Registry registry) {
     this.registry = registry;
-    this.description = "Vis en hjælpebesked";
+    this.description = "Vis en hjælpebesked.";
   }
   
   @Override

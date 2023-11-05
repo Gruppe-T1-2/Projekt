@@ -4,8 +4,8 @@ public class InventoryManager {
 
     static ShoppingList shoppingList = new ShoppingList();
 
-    static private double Score;
-    static private double Money = 150;
+    static private double Score = 0;
+    static private double Money = 200;
 
     static public double ScoreGet(){
         return Score;
@@ -41,7 +41,7 @@ public class InventoryManager {
             Score -= inventory.get(inputName).CO2;
             inventory.remove(inputName);
         } else {
-            System.out.println("Du har ikke en" + inputName);
+            System.out.println("Du har ikke en " + inputName);
         }
     }
 
@@ -49,7 +49,6 @@ public class InventoryManager {
         if (inventory.get(name) != null) {
             return inventory.get(name);
         } else {
-            System.out.println("Kunne ikke finde en ting med dette navn. Returnerer en default Item.");
             inventory.put("Default", new Item("Default Name", "Default Description", "Default tag", 0, 0));
             return inventory.get("Default");
 
@@ -71,16 +70,16 @@ public class InventoryManager {
     }
 
     static public void printInventory() {
-        Set<String> keySet = inventory.keySet();
-        System.out.println("Du har de følgende genstande i din kurv:");
-        for (int i = 0 ; i < keySet.size() ; i++) {
-            System.out.println(" ");
-            System.out.println(inventory.get(keySet.iterator().next()).name);
+        System.out.println("Du har følgende varer i din kurv:");
+        for (Map.Entry<String, Item> entry : inventory.entrySet()) {
+            System.out.println();
+            System.out.println("- " + entry.getKey());
+            System.out.println("- Pris: " + entry.getValue().price + " DKK");
 
         }
-        System.out.println(" ");
+        System.out.println();
         System.out.println("Du har " + Money + " DKK");
-        System.out.println(" ");
+        System.out.println();
 
     }
 

@@ -11,6 +11,7 @@ public class Item {
 
         this.name = name;
         this.description = description;
+        this.tag = tag;
         this.CO2 = CO2;
         this.price = price;
 
