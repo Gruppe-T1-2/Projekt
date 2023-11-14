@@ -1,7 +1,7 @@
 /* Command registry
  */
 
-package woz;
+package Domain;
 import java.util.HashMap;
 import java.util.Map;
 

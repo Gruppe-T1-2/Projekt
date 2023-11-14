@@ -1,7 +1,7 @@
 /* Space class for modeling spaces (rooms, caves, ...)
  */
 
-package woz;
+package Domain;
 import java.util.*;
 
 class Space extends Node {

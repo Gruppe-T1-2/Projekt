@@ -1,6 +1,6 @@
 /* Kommando til at vise en items navn og description.
  */
-package woz;
+package Domain;
 class CommandExamine extends BaseCommand implements Command {
 
     CommandExamine () {

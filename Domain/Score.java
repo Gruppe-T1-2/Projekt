@@ -1,4 +1,4 @@
-package woz;
+package Domain;
 public class Score {
     private static double score;
 

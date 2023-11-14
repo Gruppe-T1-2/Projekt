@@ -1,6 +1,6 @@
 /* Command for transitioning between spaces
  */
-package woz;
+package Domain;
 class CommandGo extends BaseCommand implements Command {
   CommandGo() {
     description = "Følg en udgang.";

@@ -1,6 +1,6 @@
 /* Help command
  */
-package woz;
+package Domain;
 import java.util.Arrays;
 
 class CommandHelp extends BaseCommand implements Command {
