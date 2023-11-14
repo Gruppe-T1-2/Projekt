@@ -1,5 +1,4 @@
-package woz;
-import java.lang.reflect.Parameter;
+package Domain;
 
 public class CommandPickUp extends BaseCommand implements Command {
 

@@ -1,6 +1,6 @@
 /* Command for exiting program
  */
-package woz;
+package Domain;
 class CommandExit extends BaseCommand implements Command {
   CommandExit () {
     description = "Aflsut spillet.";

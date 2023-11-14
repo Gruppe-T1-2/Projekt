@@ -1,6 +1,4 @@
-package woz;
-import java.util.Scanner;
-import java.util.*;
+package Domain;
 
 public class CommandPutDown extends BaseCommand implements Command{
     CommandPutDown () {

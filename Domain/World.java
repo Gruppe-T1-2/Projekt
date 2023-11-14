@@ -1,6 +1,6 @@
 /* World class for modeling the entire in-game world
  */
-package woz;
+package Domain;
 class World {
 
     Space entry;

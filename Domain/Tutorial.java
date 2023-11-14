@@ -1,4 +1,4 @@
-package woz;
+package Domain;
 import java.util.Set;
 
 public class Tutorial extends Space {

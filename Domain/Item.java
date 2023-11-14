@@ -1,4 +1,4 @@
-package woz;
+package Domain;
 public class Item {
     String name = "Default name";
     String description = "Default description";

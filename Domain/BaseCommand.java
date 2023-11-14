@@ -1,6 +1,6 @@
 /* Baseclass for commands
  */
-package woz;
+package Domain;
 class BaseCommand {
   String description = "Undocumented";
   

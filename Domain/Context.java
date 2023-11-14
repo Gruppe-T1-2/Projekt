@@ -1,7 +1,7 @@
 /* Context class to hold all context relevant to a session.
  */
 
-package woz;
+package Domain;
 class Context {
   Space current;
   boolean done = false;

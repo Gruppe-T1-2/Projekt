@@ -1,4 +1,4 @@
-package woz;
+package Domain;
 class CommandInventory extends BaseCommand implements Command{
 
     CommandInventory () {

@@ -1,4 +1,4 @@
-package woz;
+package Domain;
 class CommandShoppingList extends BaseCommand implements Command {
 
     CommandShoppingList () {

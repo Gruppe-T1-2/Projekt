@@ -1,6 +1,6 @@
 /* Main class for launching the game
  */
-package woz;
+package Domain;
 
 import java.util.ArrayList;
 import java.util.Scanner;

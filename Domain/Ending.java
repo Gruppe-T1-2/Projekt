@@ -1,6 +1,4 @@
-package woz;
-
-import java.util.Set;
+package Domain;
 
 public class Ending extends Space {
     Ending (String name) {
