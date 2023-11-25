@@ -2,12 +2,12 @@ package Domain;
 import java.util.*;
 
 public class ShoppingList {
-    HashMap<String, Integer> ItemsMissing = new HashMap<String, Integer>();
-    private HashMap<String, Integer> TagTracker = new HashMap<String, Integer>();
+    static HashMap<String, Integer> ItemsMissing = new HashMap<String, Integer>();
+    private static HashMap<String, Integer> TagTracker = new HashMap<String, Integer>();
 
 
 
-    public void InitShoppingListRandom(int numberOfItems) {
+    public static void InitShoppingListRandom(int numberOfItems) {
         Random random = new Random();
 
         for (int i = 0; i < Game.tagList.size(); i++) {
