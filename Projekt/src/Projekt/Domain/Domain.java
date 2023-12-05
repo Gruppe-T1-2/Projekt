@@ -23,4 +23,10 @@ public class Domain {
     public static void removeItem(String itemname){ InventoryManager.removeItem(itemname);}
 
     public static void addItem(Item item){ InventoryManager.addItem(item);}
+
+    public static Item getItemFromSpace(String spaceName, String itemName) {
+        return Game.world.spaceList.get(spaceName).ItemsInSpace.get(itemName);
+    }
+
+
 }

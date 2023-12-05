@@ -29,7 +29,6 @@ public class InventoryManager {
     }
 
     static public void addItem(Item inputItem) {
-        Presentation.addItem(new ItemGFX());
         if (inputItem.price < Money) {
             inventory.put(inputItem.name, inputItem);
             shoppingList.itemAdded(inputItem);

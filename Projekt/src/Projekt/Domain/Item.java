@@ -1,6 +1,10 @@
 package Projekt.Domain;
+
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 public class Item {
-    String name = "Default name";
+    public String name = "Default name";
     String description = "Default description";
 
     String tag = "Default tag";
@@ -14,7 +18,6 @@ public class Item {
         this.description = description;
         this.tag = tag;
         this.CO2 = CO2;
-        this.price = price;
 
     }
 }

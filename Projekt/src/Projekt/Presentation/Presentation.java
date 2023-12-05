@@ -1,9 +1,8 @@
 package Projekt.Presentation;
 
+import Projekt.Domain.Item;
+
 public class Presentation {
 
-    public static void addItem(ItemGFX itemGFX) {
-        Display.inventory.addItem(itemGFX);
 
-    }
 }

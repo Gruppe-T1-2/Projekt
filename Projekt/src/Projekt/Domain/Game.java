@@ -29,7 +29,6 @@ class Game {
   }
 
   static void initItem() {
-
     itemList.add(new Item("Æbler, Sweetango, 8stk",
             "Dyrket i Italien", "Frugt",
             0.5, 18));
