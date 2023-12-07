@@ -13,18 +13,7 @@ class Context {
   public Space getCurrent() {
     return current;
   }
-  
-  public void transition (String direction) {
-    Space next = current.followEdge(direction);
-    if (next==null) {
-      System.out.println("Du er forvirret, og går i en cirkel imens du kigger efter '"+direction+"'. Til sidst giver du op.");
-    } else {
-      current.goodbye();
-      current = next;
-      current.welcome();
-    }
-  }
-  
+
   public void makeDone () {
     done = true;
   }

@@ -8,25 +8,9 @@ import java.util.Scanner;
 class Game {
   static World world = new World();
   static Context context = new Context(world.getEntry());
-  static Command fallback = new CommandUnknown();
-  static Registry registry = new Registry(context, fallback);
   static Scanner scanner = new Scanner(System.in);
   static ArrayList<Item> itemList = new ArrayList<>();
   static ArrayList<String> tagList = new ArrayList<>();
-
-  public static void initRegistry() {
-    Command cmdExit = new CommandExit();
-    registry.register("afslut", cmdExit);
-    registry.register("forlad", cmdExit);
-    registry.register("farvel", cmdExit);
-    registry.register("gå", new CommandGo());
-    registry.register("saml", new CommandPickUp());
-    registry.register("smid", new CommandPutDown());
-    registry.register("undersøg", new CommandExamine());
-    registry.register("inventory", new CommandInventory());
-    registry.register("shoppingliste", new CommandShoppingList());
-    registry.register("hjælp", new CommandHelp(registry));
-  }
 
   static void initItem() {
     itemList.add(new Item("Æbler, Sweetango, 8stk",

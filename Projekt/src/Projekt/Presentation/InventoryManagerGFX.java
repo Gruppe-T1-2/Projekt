@@ -157,8 +157,6 @@ public class InventoryManagerGFX {
         removeItemBtn.add(new Button());
         int lastElement = removeItemBtn.size() - 1;
         ImageView removeBtnImageview = new ImageView(removeBtnImage);
-        System.out.println(lastElement);
-        System.out.println(removeItemBtn.get(lastElement));
         removeItemBtn.get(lastElement).setTranslateX(100*itemCount - 240);
         removeItemBtn.get(lastElement).setGraphic(removeBtnImageview);
         removeItemBtn.get(lastElement).setScaleX(0.1);

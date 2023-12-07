@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Domain {
     public static void initEverything() {
-        Game.initRegistry();
         Game.initItem();
         ShoppingList.InitShoppingListRandom(50);
         Game.context.getCurrent().welcome();
@@ -17,10 +16,6 @@ public class Domain {
 
     public static String GetNextLine() {
         return Game.scanner.nextLine();
-    }
-
-    public static void dispatch(String line) {
-        Game.registry.dispatch(line);
     }
 
     public static void removeItem(String itemname){ InventoryManager.removeItem(itemname);}

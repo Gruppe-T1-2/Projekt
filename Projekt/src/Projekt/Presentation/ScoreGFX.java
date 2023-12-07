@@ -109,7 +109,6 @@ public class ScoreGFX {
             text += "\n";
             text += "\n";
         }
-        System.out.println(text);
         Label txt = new Label(text);
         txt.setTranslateY(-150);
         txt.setTranslateX(50);

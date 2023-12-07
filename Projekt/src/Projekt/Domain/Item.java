@@ -4,13 +4,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Item {
-    public String name = "Default name";
-    public String description = "Default description";
+    public String name;
+    public String description;
 
-    String tag = "Default tag";
+    String tag;
 
-    double CO2 = 0;
-    public double price = 0;
+    double CO2;
+    public double price;
 
     public Item(String name, String description, String tag, double CO2, double price) {
 

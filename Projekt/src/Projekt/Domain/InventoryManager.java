@@ -55,35 +55,8 @@ public class InventoryManager {
             return inventory.get("Default");
 
         }
-
     }
 
-    static public void printItemInfo(String name) {
-        if (inventory.get(name) != null) {
-            Item item = inventory.get(name);
-            System.out.println("Denne genstand hedder: " + item.name);
-            System.out.println(" ");
-            System.out.println(item.description);
-            System.out.println(" ");
-        } else {
-            System.out.println("Kunne ikke finde en ting med dette navn.");
-        }
-
-    }
-
-    static public void printInventory() {
-        System.out.println("Du har følgende varer i din kurv:");
-        for (Map.Entry<String, Item> entry : inventory.entrySet()) {
-            System.out.println();
-            System.out.println("- " + entry.getKey());
-            System.out.println("- Pris: " + entry.getValue().price + " DKK");
-
-        }
-        System.out.println();
-        System.out.println("Du har " + Money + " DKK");
-        System.out.println();
-
-    }
 
     static public List<Item> getTop3Items() {
         List<Item> itemList = new ArrayList<>(inventory.values());
