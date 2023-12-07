@@ -8,6 +8,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
+
 public class Display extends Application {
     public static StackPane root = new StackPane();
     public static Scene scene = new Scene(root,1500,919);
@@ -16,11 +18,17 @@ public class Display extends Application {
     public static InventoryManagerGFX inventory = new InventoryManagerGFX();
     public static IntroSceneGUI spaceGFX = new IntroSceneGUI();
     public static ShoppingListGFX shoppingList = new ShoppingListGFX();
+    public static Tutorial tutorial = new Tutorial();
 
     @Override
     public void start(Stage stage) {
-        System.out.println("Velkommen til (Spil navn)!");
         Domain.initEverything();
+        try {
+            shoppingList.initShoppingListGFX();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
         primaryStage.setTitle("Klima Kurv");
         primaryStage.setScene(scene);
         inventory.initInventoryManagerGFX(stage);
@@ -30,13 +38,10 @@ public class Display extends Application {
             throw new RuntimeException(e);
         }
         primaryStage.show();
-    }
-
-    public static void gameOnGoing() {
-        while (!Domain.GetIsDone()) {
-            System.out.print("> ");
-            String line = Domain.GetNextLine();
-            Domain.dispatch(line);
+        try {
+            tutorial.tutorialDisplay();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 }

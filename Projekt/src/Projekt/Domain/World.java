@@ -28,7 +28,7 @@ class World {
         spaceList.put("Frugt og grønt", frugtOgGroent);
         spaceList.put("Kød", koed);
         spaceList.put("Mejeriprodukter", mejeriprodukter);
-        spaceList.put("Udgang", sliksektion);
+        spaceList.put("Sliksektion", sliksektion);
 
         entry.addEdge("Frugt og grønt", frugtOgGroent);
         entry.addEdge( "Kød", koed);

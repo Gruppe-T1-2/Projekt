@@ -251,24 +251,24 @@ public class IntroSceneGUI{
         root.setBackground(bg);
     }
     public void initfreezer() throws FileNotFoundException {
-        ChickenBTN = new ItemBTN("Kylling", root, ChickenPath, "Kød","500g ferskkylling, Salling");
-        NakkeBTN = new ItemBTN("Nakkefilet", root, NakkeFiletPath, "Kød","500g svinekød, Slagteren");
-        OkseBTN = new ItemBTN("Oksekød", root, OkseMeatPath, "Kød","500g oksekød, Salling");
-        LamBTN = new ItemBTN("Lammekød", root, LammeMeatPath, "Kød","500g lammekød, Ludvig");
+        ChickenBTN = new ItemBTN(root, ChickenPath, "Kød","500g ferskkylling, Salling");
+        NakkeBTN = new ItemBTN(root, NakkeFiletPath, "Kød","500g svinekød, Slagteren");
+        OkseBTN = new ItemBTN(root, OkseMeatPath, "Kød","500g oksekød, Salling");
+        LamBTN = new ItemBTN(root, LammeMeatPath, "Kød","500g lammekød, Ludvig");
 
     }
     public void initShelf() throws FileNotFoundException {
-        AppleTrayBTN = new ItemBTN("AppleTray", root, AppleTrayPath,"Frugt og grønt","Æbler, Sweetango, 8stk");
-        OrganicAppleBTN = new ItemBTN("OrganicApple", root, OrganicApplePath,"Frugt og grønt","Æbler i bakke, 6stk");
-        OrangeBTN = new ItemBTN("Orange", root, OrangePath,"Frugt og grønt","Appelsiner, Salling, 6stk");
-        BananaBTN = new ItemBTN("Banana", root, BananaPath,"Frugt og grønt","Bananer, 6pak, ØKO");
+        AppleTrayBTN = new ItemBTN(root, AppleTrayPath,"Frugt og grønt","Æbler, Sweetango, 8stk");
+        OrganicAppleBTN = new ItemBTN( root, OrganicApplePath,"Frugt og grønt","Æbler i bakke, 6stk");
+        OrangeBTN = new ItemBTN( root, OrangePath,"Frugt og grønt","Appelsiner, Salling, 6stk");
+        BananaBTN = new ItemBTN( root, BananaPath,"Frugt og grønt","Bananer, 6pak, ØKO");
     }
     public void initCooler() throws FileNotFoundException {
-        OstBTN = new ItemBTN("Ost", root, OstPath,"Mejeriprodukter","Gul ost, Arla");
-        OatlyBTN = new ItemBTN("Oatly", root, OatlyPath,"Mejeriprodukter","1L havremælk, Oatly");
-        HytteOstBTN = new ItemBTN("HytteOst", root, HytteOstPath,"Mejeriprodukter","Gul, fedtfattig ost, Arla");
-        MandelDrikBTN = new ItemBTN("MandelDrik", root, MandelDrikPath,"Mejeriprodukter","1L mandelmaelk, SPIR");
-        MælkBTN = new ItemBTN("Mælk", root, MælkPath,"Mejeriprodukter","1L letmælk, Arla");
+        OstBTN = new ItemBTN(root, OstPath,"Mejeriprodukter","Gul ost, Arla");
+        OatlyBTN = new ItemBTN(root, OatlyPath,"Mejeriprodukter","1L havremælk, Oatly");
+        HytteOstBTN = new ItemBTN(root, HytteOstPath,"Mejeriprodukter","Gul, fedtfattig ost, Arla");
+        MandelDrikBTN = new ItemBTN(root, MandelDrikPath,"Mejeriprodukter","1L mandelmaelk, SPIR");
+        MælkBTN = new ItemBTN(root, MælkPath,"Mejeriprodukter","1L letmælk, Arla");
     }
     public void RemoveCoolerItems(){
         OstBTN.RemoveBTN(root);
@@ -293,11 +293,10 @@ public class IntroSceneGUI{
     }
 
     public void initCandyShelf(){
-
         try {
-            slikPoseBTN = new ItemBTN("slikpose", root, slikPoseBTNPath, "Sliksektion", "100g slik, Haribo");
-            milkaBTN = new ItemBTN("milka", root, milkaBTNPath, "Sliksektion", "150g lys chokolade, Milka");
-            marabouBTN = new ItemBTN("marabou", root, marabouBTNPath, "Sliksektion", "150g mørk chokolade, Marabou");
+            slikPoseBTN = new ItemBTN(root, slikPoseBTNPath, "Sliksektion", "100g slik, Haribo");
+            milkaBTN = new ItemBTN(root, milkaBTNPath, "Sliksektion", "150g lys chokolade, Milka");
+            marabouBTN = new ItemBTN(root, marabouBTNPath, "Sliksektion", "150g mørk chokolade, Marabou");
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -308,6 +307,7 @@ public class IntroSceneGUI{
         marabouBTN.RemoveBTN(root);
     }
     public void endGame(){
+        root.getChildren().removeAll(RightArrowBTN, LeftArrowBTN, endGameBTN);
         ScoreGFX scoreShow = new ScoreGFX();
         scoreShow.showScore(root);
     }

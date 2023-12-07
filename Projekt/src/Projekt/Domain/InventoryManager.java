@@ -1,8 +1,5 @@
 package Projekt.Domain;
 
-import Projekt.Presentation.ItemGFX;
-import Projekt.Presentation.Presentation;
-
 import java.util.*;
 public class InventoryManager {
     static private HashMap<String, Item> inventory = new HashMap<String, Item>();
@@ -87,6 +84,18 @@ public class InventoryManager {
         System.out.println();
 
     }
+
+    static public List<Item> getTop3Items() {
+        List<Item> itemList = new ArrayList<>(inventory.values());
+
+        Collections.sort(itemList, (item1, item2) -> Double.compare(item2.CO2, item1.CO2));
+
+        int topItemsCount = Math.min(3, itemList.size());
+        List<Item> top3Items = itemList.subList(0, topItemsCount);
+
+        return top3Items;
+    }
+
 
 
 
